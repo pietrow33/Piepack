@@ -1,7 +1,12 @@
+from os.path import abspath
+from os.path import dirname
 import csv
+import piepack
 
 def try_me(ddd):
-    with open('/home/pietro/code/pietrow33/piepack/piepack/data/ddd.csv', mode='r') as csv_file:
+    datapath = dirname(abspath(piepack.__file__)) + "/data"
+    data = "{}/ddd.csv".format(datapath)
+    with open(data, mode='r') as csv_file:
         csv_reader = csv.DictReader(csv_file, delimiter=';')
         for row in csv_reader:
             if row['Prefixo'] == str(ddd):
